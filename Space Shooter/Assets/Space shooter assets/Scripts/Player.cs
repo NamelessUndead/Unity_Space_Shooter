@@ -17,7 +17,10 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
-        transform.Translate(Vector3.right * Time.deltaTime * Speed);
+        /// Using keyboard to move vehicle
+        float HorizontalInput = Input.GetAxis("Horizontal");
+        float VerticalInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.right * HorizontalInput * Speed * Time.deltaTime);
+        transform.Translate(Vector3.up * VerticalInput * Speed * Time.deltaTime);
 	}
 }
