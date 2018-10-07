@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
     // The speed at which our player is moving per meter
     private float Speed = 5.0f;
 
+    // game object laser prefab variable
+    public GameObject LaserPrefab;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -20,6 +23,15 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
         Movement();
+
+        // if space key pressed
+        // spawn laser at player position
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // spawn laser
+            Instantiate(LaserPrefab, transform.position + new Vector3(0, 0.65f,0), Quaternion.identity );
+        }
 
     }
 
